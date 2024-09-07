@@ -7,6 +7,7 @@ class Profile(models.Model):
 	name = models.CharField(max_length=100)
 	pic = models.ImageField(upload_to='img', blank=True, null=True)
 	friends = models.ManyToManyField('Friend', related_name='my_friends')
+	about = models.TextField(default="i am using chat app")
 
 	def __str__(self):
 		return self.name
