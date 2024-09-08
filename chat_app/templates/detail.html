@@ -12,6 +12,15 @@
 <body>
 <!-- partial:index.partial.html -->
 <body>
+  <style type="text/css">
+    .forms{
+      border: 1px solid slateblue;
+      width: 100%;
+      border-radius: 5px;
+      padding: 10px 10px;
+      font-size: 18px;
+    }
+  </style>
   <div class="container">
     <div class="row">
       <nav class="menu">
@@ -66,8 +75,11 @@
         </div>
         <div class="footer-chat">
           <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
-          <input type="text" class="write-message" placeholder="Type your message here"></input>
-          <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i>
+          <form action="" id="myform" method="POST">
+            {% csrf_token %}
+              {{ form.body }}
+          <button type="submit">send</i></button>
+          </form>
         </div>
       </section>
     </div>
