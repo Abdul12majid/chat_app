@@ -52,33 +52,30 @@
           <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
         </div>
         <div class="messages-chat">
-          <div class="message">
-            <div class="photo" style="background-image: url({{friend.profile.pic.url}});">
-              <div class="online"></div>
-            </div>
-            <p class="text"> Hi, how are you ? </p>
-          </div>
+          {% for chat in chats %}
+            {% if chat.msg_sender == user and chat.msg_receiver == profile %}
           <div class="message text-only">
-            <p class="text"> What are you doing tonight ? Want to go take a drink ?</p>
+            <div class="response">
+              <p class="text"> {{chat}}😃</p>
+            </div>
+            <p class="time"> 14h58</p>
+          </div>
+          {% elif chat.sender == profile and chat.msg_reciver == user %}
+          
+          <div class="message text-only">
+            <p class="text"> {{chat}}</p>
           </div>
           <p class="time"> 14h58</p>
-          <div class="message text-only">
-            <div class="response">
-              <p class="text"> Hey Megan ! It's been a while 😃</p>
-            </div>
-          </div>
-          <div class="message text-only">
-            <div class="response">
-              <p class="text"> When can we meet ?</p>
-            </div>
-          </div>
+          {% endif %}
+          {% endfor %}
+          
         </div>
         <div class="footer-chat">
           <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
           <form action="" id="myform" method="POST">
             {% csrf_token %}
               {{ form.body }}
-          <button type="submit">send</i></button>
+          <button type="submit"><i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i></button>
           </form>
         </div>
       </section>
