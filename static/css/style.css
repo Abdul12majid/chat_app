@@ -251,15 +251,17 @@ body {
   margin-right: 40px !important;
 }
 
-.response {
+
+.sender {
   float: right;
   margin-right: 0px !important;
   margin-left:auto; /* flexbox alignment rule */
 }
 
-.response .text {
+.sender .text {
   background-color: #e3effd !important;
 }
+
 
 .footer-chat {
   width: calc(65% - 66px);
